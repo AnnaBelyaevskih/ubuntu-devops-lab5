@@ -1,0 +1,25 @@
+---
+- name: Install NMAP and copy targets on managed nodes
+  hosts: all
+  become: true
+  tasks:
+    - name: Install NMAP
+      apt:
+        name: nmap
+        state: latest
+        update_cache: true
+
+    - name: Copy nmap targets list
+      copy:
+        src: ./targets.txt
+        dest: ~/targets.txt
+        force: yes
+        mode: '0644'
+
+    - name: Run nmap
+      shell: "nmap -iL ~/targets.txt -p 80 -oG -"
+      register: nmap_result
+
+    - name: Display nmap result
+      debug:
+        var: nmap_result.stdout_lines
