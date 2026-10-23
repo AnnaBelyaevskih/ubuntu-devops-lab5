@@ -17,10 +17,10 @@
 
 ## Исходный код плейбука (`playbook.yml`)
 
-![Ansible Playbook](scr1.png)
+![Ansible Playbook](screenshots/scr1.png)
 
 ---
 
 ## Запуск и результаты выполнения
 
-![Launch and results](scr2.png)
+![Launch and results](screenshots/scr2.png)
